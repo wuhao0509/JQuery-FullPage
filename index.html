@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="section">
+            <h1>第一屏</h1>
+        </div>
+        <div class="section">
+            <!-- 如果想横屏切换slide那么需要给slide添加一个父元素，让父元素带动slide切换，、
+                在用户使用时，我们不需要让用户添加父元素，我们应该在插件内部用js添加 -->
+            <div class="slide">2-1</div>
+            <div class="slide">2-2</div>
+            <div class="slide">2-4</div>
+        </div>
+        <div class="section">
+            <h1>第三屏</h1>
+        </div>
+        <div class="section">
+            <h1>第四屏</h1>
+        </div>
+    </div>
+    <script src="./jquery.min.js"></script>
+    <script src="./myFullPage.js"></script>
+    <script>
+        // 使用插件
+        $('.wrapper').myFullPage({
+            colorsArray:['red']
+        });
+    </script>
+</body>
+
+</html>
