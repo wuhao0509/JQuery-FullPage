@@ -74,7 +74,10 @@ $.fn.extend({
                 $(ele)
                     .css({
                         width: $(ele).find('.slide').size() * clientWidth,
-                        height: clientHeight
+                        height: clientHeight,
+                        position: 'absolute',
+                        left: 0,
+                        top: 0
                     })
             })
 
@@ -98,7 +101,6 @@ $.fn.extend({
             // 事件对象e中的which记录键盘按键的序号
             // left 37 top 38 right 39 bottom 40
 
-
             // 垂直移动
             if (e.which == 38 || e.which == 40) {
                 // 移动$w 来带动section
@@ -112,11 +114,11 @@ $.fn.extend({
                     if (e.which == 38 && curIndex != 0) {
                         // 先更新index
                         curIndex--;
-                        direction='top';
+                        direction = 'top';
                         newTop += clientHeight;
                     } else if (e.which == 40 && curIndex != $sec.size() - 1) {
                         curIndex++;
-                        direction='bottom';
+                        direction = 'bottom';
                         newTop -= clientHeight;
                     }
 
@@ -128,20 +130,55 @@ $.fn.extend({
 
                         // 给当前页面添加active，同时给上一个页面删除active
                         $sec.eq(curIndex).addClass('active');
-                        if(direction=='top'){
-                            $sec.eq(curIndex+1).removeClass('active');
-                        }else if(direction=='bottom'){
-                            $sec.eq(curIndex-1).removeClass('active');
+                        if (direction == 'top') {
+                            $sec.eq(curIndex + 1).removeClass('active');
+                        } else if (direction == 'bottom') {
+                            $sec.eq(curIndex - 1).removeClass('active');
                         }
                     })
                 }
 
             }
 
-
             // 水平移动
             if (e.which == 37 || e.which == 39) {
                 // 移动slideWrapper 来带动slide
+
+                if (lock) {
+                    lock = false;
+                    var $sw = $('.active').find('.slideWrapper');
+                    var innerActiveIndex = $sw.find('.innerActive').index();
+                    console.log(innerActiveIndex)
+                    var newLeft = $sw.offset().left;
+                    var direction = '';
+                    if (e.which == 37 && innerActiveIndex != 0) {
+                        // 左移
+                        innerActiveIndex--;
+                        newLeft += clientWidth;
+                        direction = 'left';
+                    } else if (e.which == 39 && innerActiveIndex != $sw.find('.slide').size()-1) {
+                        // 右移
+                        innerActiveIndex++;
+                        newLeft -= clientWidth;
+                        direction = 'right';
+                    }
+
+                    // 移动slideWrapper
+
+                    $sw.animate({
+                        left: newLeft
+                    }, 350, 'swing', function () {
+                        lock = true;
+
+                        $sw.find('.slide').eq(innerActiveIndex).addClass('innerActive');
+                        if (direction == 'left') {
+                            $sw.find('.slide').eq(innerActiveIndex+1).removeClass('innerActive');
+                        }else if(direction == 'right'){
+                            $sw.find('.slide').eq(innerActiveIndex-1).removeClass('innerActive');
+                        }
+                    })
+
+                }
 
             }
         })

@@ -17,7 +17,9 @@
                 在用户使用时，我们不需要让用户添加父元素，我们应该在插件内部用js添加 -->
             <div class="slide">2-1</div>
             <div class="slide">2-2</div>
+            <div class="slide">2-3</div>
             <div class="slide">2-4</div>
+            <div class="slide">2-5</div>
         </div>
         <div class="section">
             第三屏
@@ -32,6 +34,12 @@
         // 使用插件
         $('.wrapper').myFullPage({
             colorsArray:['red','blue','green','orange'],
+            onLeave:function(){
+
+            },
+            onLoad:function(){
+                
+            }
         });
     </script>
 </body>
