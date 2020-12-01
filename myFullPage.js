@@ -113,12 +113,14 @@ $.fn.extend({
                     var direction = '';
                     if (e.which == 38 && curIndex != 0) {
                         // 先更新index
-                        curIndex--;
                         direction = 'top';
+                        config.onLeave(curIndex,direction);
+                        curIndex--;
                         newTop += clientHeight;
                     } else if (e.which == 40 && curIndex != $sec.size() - 1) {
-                        curIndex++;
                         direction = 'bottom';
+                        config.onLeave(curIndex,direction);
+                        curIndex++;
                         newTop -= clientHeight;
                     }
 
@@ -135,6 +137,8 @@ $.fn.extend({
                         } else if (direction == 'bottom') {
                             $sec.eq(curIndex - 1).removeClass('active');
                         }
+
+                        config.onLoad(curIndex,direction);
                     })
                 }
 
@@ -148,19 +152,20 @@ $.fn.extend({
                     lock = false;
                     var $sw = $('.active').find('.slideWrapper');
                     var innerActiveIndex = $sw.find('.innerActive').index();
-                    console.log(innerActiveIndex)
                     var newLeft = $sw.offset().left;
                     var direction = '';
                     if (e.which == 37 && innerActiveIndex != 0) {
                         // 左移
+                        direction = 'left';
+                        config.onLeave(innerActiveIndex,direction);
                         innerActiveIndex--;
                         newLeft += clientWidth;
-                        direction = 'left';
                     } else if (e.which == 39 && innerActiveIndex != $sw.find('.slide').size()-1) {
                         // 右移
+                        direction = 'right';
+                        config.onLeave(innerActiveIndex,direction);
                         innerActiveIndex++;
                         newLeft -= clientWidth;
-                        direction = 'right';
                     }
 
                     // 移动slideWrapper
@@ -176,6 +181,7 @@ $.fn.extend({
                         }else if(direction == 'right'){
                             $sw.find('.slide').eq(innerActiveIndex-1).removeClass('innerActive');
                         }
+                        config.onLoad(innerActiveIndex,direction);
                     })
 
                 }

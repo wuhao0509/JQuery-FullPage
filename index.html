@@ -34,11 +34,11 @@
         // 使用插件
         $('.wrapper').myFullPage({
             colorsArray:['red','blue','green','orange'],
-            onLeave:function(){
-
+            onLeave:function(index,direction){
+                console.log(index,direction)
             },
-            onLoad:function(){
-                
+            onLoad:function(index,direction){
+                console.log(index,direction)
             }
         });
     </script>
