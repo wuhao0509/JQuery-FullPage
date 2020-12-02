@@ -52,7 +52,6 @@ $.fn.extend({
                 $(ele)
                     .css({
                         backgroundColor: colorsArray[index],
-                        // background:imageArray[index],
                         position: 'relative'
                     })
                     .find('.slide')
