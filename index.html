@@ -31,34 +31,16 @@
 
     <!-- 项目代码 -->
     <div class="wrapper">
-        <div class="section">第一屏</div>
-        <div class="section">
-            <div class="slide">2-1</div>
-            <div class="slide">2-2</div>
-            <div class="slide">2-3</div>
-            <div class="slide">2-4</div>
-        </div>
-        <div class="section">第三屏</div>
-        <div class="section">
-            第四屏
-        </div>
+        <div class="section"></div>
+        <div class="section"></div>
+        <div class="section"></div>
+        <div class="section"></div>
     </div>
     <script src="./src/js/tool/jquery.min.js"></script>
     <script src="./src/js/tool/myFullPage.js"></script>
     <!-- <script src="./src/js/component/componentBase.js"></script> -->
     <!-- <script src="./src/js/pageEngine.js"></script> -->
-    <!-- <script src="./src/js/entry.js"></script> -->
-    <script>
-        $('.wrapper').myFullPage({
-            colorsArray: ['red', 'green', 'blue', '#008c8c'],
-            onLeave:function(curIndex,direction){
-                console.log('onLeave',curIndex,direction)
-            },
-            onLoad:function(innerActiveIndex,direction){
-                console.log('onLoad',innerActiveIndex,direction)
-            }
-        })
-    </script>
+    <script src="./src/js/entry.js"></script>
 </body>
 
 </html>
