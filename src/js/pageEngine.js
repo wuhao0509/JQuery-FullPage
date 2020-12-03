@@ -7,7 +7,9 @@ var pageEngine = {
   } */
   init: function (selector, colorsArray) {
     this.$w = $(selector);
+    console.log(this.$w);
     this.colorsArray = colorsArray;
+    console.log(this.colorsArray);
     this.slideFlag = false;
     return this;
   },
@@ -34,8 +36,10 @@ var pageEngine = {
     switch (type) {
       case "base":
         component = ComponentFactory(config);
+        break;
       case "other":
         component = other(config);
+        break;
     }
 
     this.slideFlag
@@ -46,7 +50,7 @@ var pageEngine = {
 
   //给section绑定事件
   bindEvent: function () {
-    $w.find(".section").on({
+    this.$w.find(".section").on({
       _leave: function () {
         $(this).find(".component").trigger("cpLeave");
       },
@@ -58,13 +62,14 @@ var pageEngine = {
 
   //当section、slide、component都添加完毕之后，触发load函数加载页面
   load: function () {
+    var self = this;
     this.bindEvent();
     this.$w.myFullPage({
       colorsArray: this.colorsArray,
       onLeave: function (index, direction) {
         self.$w.find(".section").eq(index).trigger("_leave");
       },
-      afterLoad: function (index, direction) {
+      onLoad: function (index, direction) {
         self.$w.find(".section").eq(index).trigger("_load");
       },
     });

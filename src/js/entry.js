@@ -75,3 +75,91 @@
 //   $(this).find(".component").trigger("cpLoad");
 // });
 
+// 使用pageEngine
+pageEngine
+  .init(".wrapper",['red','blue','green','#008c8c'])
+  .addSection()
+  .addSlide()
+  .addComponent({
+    type:'base',
+    className: "",
+    content: "<span>jQuery-fullPage</span>",
+    css: {
+      // display: "none",
+      opacity: 1,
+      width: "100%",
+      height: "100%",
+      position: "absolute",
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0,
+      margin: "auto",
+      "text-align": "center",
+      "font-size": "100px",
+      // 'vertical-align':'100%'
+    },
+    event: {
+      click: function () {
+        console.log("click事件生效");
+      },
+    },
+    animation: {
+      animateIn: {
+        opacity: 1,
+        top: 500,
+      },
+      animateOut: {
+        opacity: 0,
+        top: 0,
+      },
+      delay: 100,
+      movement: "swing",
+      inCallback: function () {},
+      outCallback: function () {},
+    },
+  })
+  .addSection()
+  .addSection()
+  .addSlide()
+  .addComponent({
+    type:'base',
+    className: "",
+    content: "<span>jQuery-fullPage</span>",
+    css: {
+      // display: "none",
+      opacity: 1,
+      width: "100%",
+      height: "100%",
+      position: "absolute",
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0,
+      margin: "auto",
+      "text-align": "center",
+      "font-size": "100px",
+      // 'vertical-align':'100%'
+    },
+    event: {
+      click: function () {
+        console.log("click事件生效");
+      },
+    },
+    animation: {
+      animateIn: {
+        opacity: 1,
+        top: 500,
+      },
+      animateOut: {
+        opacity: 0,
+        top: 0,
+      },
+      delay: 100,
+      movement: "swing",
+      inCallback: function () {},
+      outCallback: function () {},
+    },
+  })
+  .addSection()
+  .load();
