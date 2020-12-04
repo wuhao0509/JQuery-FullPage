@@ -7,9 +7,7 @@ var pageEngine = {
   } */
   init: function (selector, colorsArray) {
     this.$w = $(selector);
-    console.log(this.$w);
     this.colorsArray = colorsArray;
-    console.log(this.colorsArray);
     this.slideFlag = false;
     return this;
   },

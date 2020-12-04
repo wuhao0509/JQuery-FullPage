@@ -14,7 +14,6 @@ $.fn.extend({
     var lock = true;
 
     // 初始化样式
-
     // 给html body wrapper section添加共同样式
     $("html")
       .add("body")
@@ -83,14 +82,14 @@ $.fn.extend({
           // 上运动
           if (e.which == 38 && curIndex != 0) {
             direction = "top";
-            config.onLeave(curIndex,direction);
+            config.onLeave(curIndex, direction);
             curIndex--;
             newTop += clientHeight;
           }
           // 下运动
           if (e.which == 40 && curIndex != $sec.size() - 1) {
             direction = "bottom";
-            config.onLeave(curIndex,direction);
+            config.onLeave(curIndex, direction);
             curIndex++;
             newTop -= clientHeight;
           }
@@ -99,7 +98,7 @@ $.fn.extend({
             {
               top: newTop,
             },
-            150,
+            500,'swing',
             function () {
               lock = true;
               //给当前section添加active
@@ -112,7 +111,7 @@ $.fn.extend({
               }
 
               //此时新页面加载完毕，执行onLoad回调函数,传递参数，当前页面索引值及运动方向
-              config.onLoad(curIndex,direction);
+              config.onLoad(curIndex, direction);
             }
           );
         }
@@ -130,7 +129,7 @@ $.fn.extend({
           //左运动
           if (e.which == 37 && innerActiveIndex != 0) {
             direction = "left";
-            config.onLeave(innerActiveIndex,direction);
+            config.onLeave(innerActiveIndex, direction);
             innerActiveIndex--;
             newLeft += innerWidth;
           }
@@ -141,7 +140,7 @@ $.fn.extend({
             innerActiveIndex != $sw.find(".slide").size() - 1
           ) {
             direction = "right";
-            config.onLeave(innerActiveIndex,direction);
+            config.onLeave(innerActiveIndex, direction);
             innerActiveIndex++;
             newLeft -= innerWidth;
           }
@@ -150,7 +149,8 @@ $.fn.extend({
             {
               left: newLeft,
             },
-            150,
+            500,
+            "swing",
             function () {
               lock = true;
               //给当前slide添加innerActive
@@ -169,7 +169,7 @@ $.fn.extend({
               }
 
               //此时新页面加载完毕，执行onLoad回调函数,传递参数，当前页面索引值及运动方向
-              config.onLoad(innerActiveIndex,direction);
+              config.onLoad(innerActiveIndex, direction);
             }
           );
         }

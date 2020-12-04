@@ -77,89 +77,177 @@
 
 // 使用pageEngine
 pageEngine
-  .init(".wrapper",['red','blue','green','#008c8c'])
+  .init(".wrapper", ["black", "black", "black", "black"])
   .addSection()
-  .addSlide()
   .addComponent({
-    type:'base',
-    className: "",
-    content: "<span>jQuery-fullPage</span>",
-    css: {
-      // display: "none",
-      opacity: 1,
+    type: "base",
+    className: "component",
+    content: `
+        <div class="content">
+            <span>jQuery-MyFullPage项目展示</span>
+        </div>
+    `,
+    contentCss: {
       width: "100%",
       height: "100%",
+      "font-size": "50px",
+      display: "flex",
+      "flex-direction": "row",
+      "justify-content": "center",
+      "align-items": "center",
       position: "absolute",
-      left: 0,
-      right: 0,
-      top: 0,
-      bottom: 0,
-      margin: "auto",
-      "text-align": "center",
-      "font-size": "100px",
-      // 'vertical-align':'100%'
+      left: "0",
+      top: "-100%",
     },
-    event: {
-      click: function () {
-        console.log("click事件生效");
-      },
+    css: {
+      width: "100%",
+      height: "100%",
+      "background-image": "url('src/img/1.jpg')",
+      "background-repeat": "no-repeat",
+      opacity: "0",
     },
     animation: {
       animateIn: {
         opacity: 1,
-        top: 500,
+      },
+      contentIn: {
+        top: "0",
       },
       animateOut: {
         opacity: 0,
-        top: 0,
       },
-      delay: 100,
-      movement: "swing",
-      inCallback: function () {},
-      outCallback: function () {},
+      contentOut: {
+        top: "-100%",
+      },
     },
   })
   .addSection()
-  .addSection()
-  .addSlide()
   .addComponent({
-    type:'base',
-    className: "",
-    content: "<span>jQuery-fullPage</span>",
-    css: {
-      // display: "none",
-      opacity: 1,
+    type: "base",
+    className: "component",
+    content: `
+        <div class="content">
+            <span>slide1</span>
+        </div>
+    `,
+    contentCss: {
       width: "100%",
       height: "100%",
+      "font-size": "50px",
+      display: "flex",
+      "flex-direction": "row",
+      "justify-content": "center",
+      "align-items": "center",
       position: "absolute",
-      left: 0,
-      right: 0,
-      top: 0,
-      bottom: 0,
-      margin: "auto",
-      "text-align": "center",
-      "font-size": "100px",
-      // 'vertical-align':'100%'
+      left: "0",
+      top: "-100%",
     },
-    event: {
-      click: function () {
-        console.log("click事件生效");
-      },
+    css: {
+      width: "100%",
+      height: "100%",
+      "background-image": "url('src/img/2.jpg')",
+      "background-repeat": "no-repeat",
+      opacity: "0",
     },
     animation: {
       animateIn: {
         opacity: 1,
-        top: 500,
+      },
+      contentIn: {
+        top: "0",
       },
       animateOut: {
         opacity: 0,
-        top: 0,
       },
-      delay: 100,
-      movement: "swing",
-      inCallback: function () {},
-      outCallback: function () {},
+      contentOut: {
+        top: "-100%",
+      },
     },
   })
   .addSection()
+  .addComponent({
+    type: "base",
+    className: "component",
+    content: `
+        <div class="content">
+            <img src="src/img/fullPage原理.png"></img>
+        </div>
+    `,
+    contentCss: {
+      width: "100%",
+      height: "100%",
+      "font-size": "50px",
+      display: "flex",
+      "flex-direction": "row",
+      "justify-content": "center",
+      "align-items": "center",
+      position: "absolute",
+      left: "0",
+      top: "-100%",
+    },
+    css: {
+      width: "100%",
+      height: "100%",
+      "background-image": "url('src/img/3.jpg')",
+      "background-repeat": "no-repeat",
+      opacity: "0",
+    },
+    animation: {
+      animateIn: {
+        opacity: 1,
+      },
+      contentIn: {
+        top: "0",
+      },
+      animateOut: {
+        opacity: 0,
+      },
+      contentOut: {
+        top: "-100%",
+      },
+    },
+  })
+  .addSection()
+  .addComponent({
+    type: "base",
+    className: "component",
+    content: `
+        <div class="content">
+            <span>第四屏</span>
+        </div>
+    `,
+    contentCss: {
+      width: "100%",
+      height: "100%",
+      "font-size": "50px",
+      display: "flex",
+      "flex-direction": "row",
+      "justify-content": "center",
+      "align-items": "center",
+      position: "absolute",
+      left: "0",
+      top: "-100%",
+    },
+    css: {
+      width: "100%",
+      height: "100%",
+      "background-image": "url('src/img/4.jpg')",
+      "background-repeat": "no-repeat",
+      opacity: 0,
+    },
+    animation: {
+      animateIn: {
+        opacity: 1,
+      },
+      contentIn: {
+        top: "0",
+      },
+      animateOut: {
+        opacity: 0,
+      },
+      contentOut: {
+        top: "-100%",
+      },
+    },
+  })
   .load();
